@@ -9,7 +9,6 @@ public class JumpingAgent : Agent
 {
     public void Awake()
     {
-        Debug.Log("Run: Awake");
         Academy.Instance.OnEnvironmentReset += EnvironmentReset;
     }
 
@@ -45,7 +44,6 @@ public class JumpingAgent : Agent
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Run: Start");
         Physics.gravity = new Vector3(0, gravity, 0);   // Set gravity for the environment
         //Fetch the Rigidbody from the GameObject with this script attached
         leg_rigidbody = GetComponent<Rigidbody>();
@@ -74,7 +72,6 @@ public class JumpingAgent : Agent
 
     void EnvironmentReset()
     {
-        Debug.Log("Run: EnvironmentReset");
         // Set agent to defaultposition
 
         // If the Agent fell, zero its momentum for all rigidbodies (aka base and leg)
@@ -100,7 +97,6 @@ public class JumpingAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Debug.Log("Run: CollectObservations");
         // Observations, size = 8
         // [0] -> Agent y position
         // [1] -> Agent z position
@@ -131,7 +127,6 @@ public class JumpingAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        Debug.Log("Run: OnActionReceived");
         // Actions, size = 3
         // [0] -> Right rotor aka rotor1
         // [1] -> Left rotor aka rotor3
@@ -186,7 +181,6 @@ public class JumpingAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        Debug.Log("Run: Heuristic");
         //var continuousActionsOut = actionsOut.ContinuousActions;
         ActionSegment<float> continuousActionsOut = actionsOut.ContinuousActions;
         continuousActionsOut[0] = 0.0f;
