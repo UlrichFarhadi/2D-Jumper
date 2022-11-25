@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+
 public class JumpingAgent : Agent
 {
     public void Awake()
@@ -71,11 +72,6 @@ public class JumpingAgent : Agent
         Vector3 position = new Vector3(0.0f, Random.Range(goal_Y_limits[0], goal_Y_limits[1]), Random.Range(goal_Z_limits[0], goal_Z_limits[1]));
     }
 
-    public override void OnEpisodeBegin()
-    {
-        EnvironmentReset();
-    }
-
     void EnvironmentReset()
     {
         Debug.Log("Run: EnvironmentReset");
@@ -95,6 +91,11 @@ public class JumpingAgent : Agent
 
         // Set a new goal position
         set_random_goal_position(goal_transform);
+    }
+
+    public override void OnEpisodeBegin()
+    {
+        EnvironmentReset();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -126,7 +127,6 @@ public class JumpingAgent : Agent
         // Spring Contraction Distance
         float spring_contraction = Vector3.Distance(transform.position, base_rigidbody.transform.position);
         sensor.AddObservation(spring_contraction);
-
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -187,7 +187,8 @@ public class JumpingAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         Debug.Log("Run: Heuristic");
-        var continuousActionsOut = actionsOut.ContinuousActions;
+        //var continuousActionsOut = actionsOut.ContinuousActions;
+        ActionSegment<float> continuousActionsOut = actionsOut.ContinuousActions;
         continuousActionsOut[0] = 0.0f;
         continuousActionsOut[1] = 0.0f;
         continuousActionsOut[2] = 0.0f;
