@@ -67,7 +67,7 @@ public class JumpingAgent : Agent
 
     void set_random_goal_position(Transform goal_transform)
     {
-        Vector3 position = new Vector3(0.0f, Random.Range(goal_Y_limits[0], goal_Y_limits[1]), Random.Range(goal_Z_limits[0], goal_Z_limits[1]));
+        goal_transform.position = new Vector3(0.0f, Random.Range(goal_Y_limits[0], goal_Y_limits[1]), Random.Range(goal_Z_limits[0], goal_Z_limits[1]));
     }
 
     void EnvironmentReset()
@@ -81,10 +81,10 @@ public class JumpingAgent : Agent
         base_rigidbody.velocity = Vector3.zero;
 
         // Reset the default position and rotation
-        transform.localPosition.Set(default_leg_pos.x, default_leg_pos.y, default_leg_pos.z);
-        transform.localEulerAngles.Set(default_leg_rot.x, default_leg_rot.y, default_leg_rot.z);
-        base_rigidbody.transform.localPosition.Set(default_base_pos.x, default_base_pos.y, default_base_pos.z);
-        base_rigidbody.transform.localEulerAngles.Set(default_base_rot.x, default_base_rot.y, default_base_rot.z);
+        transform.position = default_leg_pos;
+        transform.eulerAngles = default_leg_rot;
+        base_rigidbody.transform.position = default_base_pos;
+        base_rigidbody.transform.eulerAngles = default_base_rot;
 
         // Set a new goal position
         set_random_goal_position(goal_transform);
