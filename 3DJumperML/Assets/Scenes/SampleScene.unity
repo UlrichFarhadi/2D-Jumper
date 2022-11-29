@@ -156,7 +156,7 @@ SphereCollider:
   m_GameObject: {fileID: 339969498}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -601,6 +601,10 @@ PrefabInstance:
       propertyPath: m_AutoConfigureConnectedAnchor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3259422169374179602, guid: 9bf7fdb72a95aad49a20a836f60bc76f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3259422169725338753, guid: 9bf7fdb72a95aad49a20a836f60bc76f, type: 3}
       propertyPath: m_Mass
       value: 2
@@ -632,6 +636,18 @@ PrefabInstance:
     - target: {fileID: 3259422169725338766, guid: 9bf7fdb72a95aad49a20a836f60bc76f, type: 3}
       propertyPath: spring_compress.Array.data[0]
       value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259422170630034909, guid: 9bf7fdb72a95aad49a20a836f60bc76f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259422170750889506, guid: 9bf7fdb72a95aad49a20a836f60bc76f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259422170750889517, guid: 9bf7fdb72a95aad49a20a836f60bc76f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3259422169725338766, guid: 9bf7fdb72a95aad49a20a836f60bc76f, type: 3}

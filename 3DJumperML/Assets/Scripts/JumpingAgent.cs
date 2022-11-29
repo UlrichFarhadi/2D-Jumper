@@ -108,8 +108,8 @@ public class JumpingAgent : Agent
         // [7] -> Spring contraction distance
 
         // Agent positions and rotation
-        sensor.AddObservation(transform.localPosition.y);
-        sensor.AddObservation(transform.localPosition.z);
+        sensor.AddObservation(transform.position.y);
+        sensor.AddObservation(transform.position.z);
         sensor.AddObservation(transform.localEulerAngles.x);
 
         // Agent velocity
@@ -123,6 +123,17 @@ public class JumpingAgent : Agent
         // Spring Contraction Distance
         float spring_contraction = Vector3.Distance(transform.position, base_rigidbody.transform.position);
         sensor.AddObservation(spring_contraction);
+
+        //Debug.Log("y " + transform.position.y);
+        //Debug.Log("z " + transform.position.z);
+        //Debug.Log("angX " + transform.localEulerAngles.x);
+        //Debug.Log("velY " + leg_rigidbody.velocity.y);
+        //Debug.Log("velZ " + leg_rigidbody.velocity.z);
+        //Debug.Log("goalY " + goal_transform.position.y);
+        //Debug.Log("goalZ " + goal_transform.position.z);
+        //Debug.Log("cont " + spring_contraction);
+        //Debug.Log(Vector3.Distance(transform.position, goal_transform.position));
+
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
